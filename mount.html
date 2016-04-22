@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+
+  <script src="build/babel-core.js"></script>
+  <style>
+  .active{
+    color: #c0392b;
+  }
+  </style>
+</head>
+<body>
+  <div id="foo"></div>
+  <script type="text/babel">
+  var SubComp = React.createClass({
+    // componentDidMount : function () {
+    //   console.log('mount', this.props.va)
+    // },
+    // componentWillUnmount : function () {
+    //   console.log('unmount', this.props.va)
+    // },
+    clk : function (e) {
+      this.props.chg(this.props.va.id, e.ctrlKey)
+    },
+    render : function () {
+      return (
+        <div onClick={this.clk} className={this.props.va.active ? "active" : ""}>{this.props.va.content}</div>
+      )
+    }
+  })
+  var AppDemo = React.createClass({
+    getInitialState: function() {
+      return {
+        k:[
+          {id:"item1",active:false,content:"dddvad"},
+          {id:"item3",active:false,content:"nadasiga"},
+          {id:"item2",active:false,content:"nyanko"},
+        ],
+        kList : ["item1","item3","item2"],
+        curItem : []
+      }
+    },
+    act : function (id) {
+      var idx = this.state.kList.indexOf(id)
+      this.state.k[idx].active = true
+    },
+    normal : function (id) {
+      var idx = this.state.kList.indexOf(id)
+      this.state.k[idx].active = false
+    },
+    chg : function (id, ctrlkey) {
+      var self = this
+      if (ctrlkey) {
+        var idx_tmp = this.state.curItem.indexOf(id)
+        if (~idx_tmp) {
+          this.state.curItem.splice(idx_tmp, 1)
+          this.normal(id)
+        } else {
+          this.state.curItem.push(id)
+          this.act(id)
+        }
+      } else {
+        this.state.curItem.forEach(function (item) {
+          self.normal(item)
+        })
+        this.state.curItem = [id]
+        this.act(id)
+      }
+      this.setState(this.state)
+    },
+    render : function () {
+      var self = this
+      var subcomp = []
+      this.state.k.forEach(function (item) {
+        subcomp.push(<SubComp va={item} key={item.id} chg={self.chg}/>)
+      })
+      return (
+        <div>
+          {subcomp}
+        </div>
+      )
+    }
+  })
+    ReactDOM.render(
+      <AppDemo />,
+      document.getElementById('foo')
+    )
+  </script>
+  <!-- <script src="js/a1.js"></script> -->
+</body>
+</html>

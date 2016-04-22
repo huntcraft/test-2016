@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>部分更新测试</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="js/js.cookie.js"></script>
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <script src="build/babel-core.js"></script>
+  <script src="js/jquery-2.2.0.min.js"></script>
+  <style>
+  iframe{height: 100px;}
+  </style>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/babel">
+  var TestApp = React.createClass({
+    getInitialState: function() {
+      return {text3:'ccccccc',text4:[{url:'http://www.baidu.com',id:'baidu'},{url:'http://m.jd.com',id:'jd'},{url:'http://m.sina.com.cn',id:'sina'}]}
+    },
+    onChange : function (e) {
+      var ts = this.state
+      var num = Number(e.target.value) % 3
+      var tmp = ts.text4[num]
+      ts.text4[num] = ts.text4[0]
+      ts.text4[0] = tmp
+      ts.text3 = e.target.value
+      this.setState(ts)
+      console.log(this.state);
+    },
+    render : function () {
+      function createII (item) {
+        return <div key={item.id} id={item.id}><iframe  src={item.url}></iframe></div>
+      }
+
+      return (
+        <div id="aaaa">
+          <div>{this.state.text4.map(createII)}</div>
+          <input value={this.state.text3} onChange={this.onChange} />
+        </div>
+      )
+    }
+  })
+
+  ReactDOM.render(
+    <TestApp />,
+    document.getElementById('test')
+  )
+  </script>
+</body>
+</html>

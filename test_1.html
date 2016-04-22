@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test 1</title>
+  <!--  测试 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <script src="build/babel-core.js"></script>
+</head>
+<body>
+  <div id="ak47"></div>
+  <script type="text/babel">
+  var Ak47 = React.createClass({
+    getInitialState : function () {
+      return {value : 1}
+    },
+    ck : function () {
+      this.state.value = (this.state.value % 2) +1
+      this.setState(this.state)
+      console.log(1);
+    },
+    render : function () {
+      var FireGun
+      switch (this.state.value) {
+        case 1:
+          FireGun = Dash2
+          break
+
+        case 2 :
+          FireGun = MirroR
+          break
+      }
+      return (
+        <div onClick={this.ck}>
+          <FireGun />
+        </div>
+      )
+    }
+  })
+
+  var Dash2 = React.createClass({
+    render : function () {
+      return (
+        <span>Dash2</span>
+      )
+    }
+  })
+
+  var MirroR = React.createClass({
+    render : function () {
+      return (
+        <span>MirroR</span>
+      )
+    }
+  })
+
+  ReactDOM.render(
+    <Ak47 />,
+    document.getElementById('ak47')
+  )
+  </script>
+</body>
+</html>

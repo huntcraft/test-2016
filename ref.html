@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <script src="build/babel-core.js"></script>
+  <style>
+    .fk{line-height: 60px;background: #2980b9;}
+  </style>
+</head>
+<body>
+  <div id="foo"></div>
+  <script type="text/babel">
+  var SubComp = React.createClass({
+    toog : function (dd) {
+      console.log(this.props.va,dd)
+    },
+    render : function () {
+      return (
+        <div>{this.props.va}</div>
+      )
+    }
+  })
+  var AppDemo = React.createClass({
+    getInitialState: function() {
+      return {va:"dddvad"}
+    },
+    hclick : function () {
+      this.state.va = "ssssso"
+      this.setState(this.state)
+        this.refs.kko.toog("musaka1")
+    },
+    render : function () {
+      return (
+        <div onClick={this.hclick}>
+          <div className="fk">asdfsdf</div>
+          <SubComp va={this.state.va} ref="kko"/>
+        </div>
+      )
+    }
+  })
+    ReactDOM.render(
+      <AppDemo />,
+      document.getElementById('foo')
+    )
+  </script>
+</body>
+</html>

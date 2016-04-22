@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.3.6.css">
+
+  <script src="/build/react-with-addons.15.js"></script>
+  <script src="/build/react-dom.15.js"></script>
+  <script src="/build/babel-core.js"></script>
+  <style>
+  body{
+    font-size: 32px;
+    line-height: 50px;
+  }
+  .example-enter {
+    opacity: 0.01;
+  }
+
+  .example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+
+  .example-leave {
+    opacity: 1;
+    //height: 50px;
+  }
+
+  .example-leave.example-leave-active {
+    opacity: 0.01;
+    height: 0;
+    overflow: hidden;
+    //transform: translate3d(0,-100% , 0);
+    transition: all 300ms ease-in;
+  }
+  </style>
+</head>
+<body>
+<div id="sir"></div>
+  <script type="text/babel">
+  var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+var TodoList = React.createClass({
+  getInitialState: function() {
+    return {items: ['hello', 'world', 'click', 'me']};
+  },
+  handleAdd: function() {
+    var newItems =
+      this.state.items.concat([prompt('Enter some text')]);
+    this.setState({items: newItems});
+  },
+  handleRemove: function(i) {
+    var newItems = this.state.items.slice();
+    newItems.splice(i, 1);
+    this.setState({items: newItems});
+  },
+  render: function() {
+    var items = this.state.items.map(function(item, i) {
+      return (
+        <div key={item} onClick={this.handleRemove.bind(this, i)}>
+          {item}
+        </div>
+      );
+    }.bind(this));
+    return (
+      <div>
+        <button onClick={this.handleAdd}>Add Item</button>
+        <ReactCSSTransitionGroup component="div" transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+          {items}
+        </ReactCSSTransitionGroup>
+      </div>
+    );
+  }
+});
+
+  ReactDOM.render(
+    <TodoList />,
+    document.getElementById('sir')
+  )
+  </script>
+</body>
+</html>

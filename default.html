@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>redirect</title>
+  <script>
+  var info = window.navigator.userAgent.toLowerCase()
+  device = 'desktop'
+  if (~info.indexOf('ipad')) {
+    device = 'tablet'
+  } else if (~info.indexOf('iphone') || ~info.indexOf('android') && ~info.indexOf('mobile')) {
+    device = 'mobile'
+  }
+  window.location.href = 'device/IndexServlet' + device + '.html'
+  </script>
+</head>
+<body>
+  正在连接...
+</body>
+</html>

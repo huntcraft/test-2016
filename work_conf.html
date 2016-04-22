@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>配置工作桌面</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <script src="build/babel-core.js"></script>
+  <script src="js/ievent.js"></script>
+  <link rel="stylesheet/less" href="css/workspace.less">
+  <script>
+  var store = {
+    action : 'new',
+    id : 0,
+    role : 'sdfskdf',
+    position : 'sadf123',
+    componentList : [   // 用于查找 components
+      'comp_active'
+    ],
+    comps : [
+      {type : 'd_default', title : '基础组件', icon : 'glyphicon glyphicon-list-alt'}
+    ],
+    tempList : ["23423","23453"],
+    templates : [
+      {id:23423,note : "三栏，客户经理",datex : "2016-04-07 08:12:54",value:[[4,8],[12],[6,6]]},
+      {id:23453,note : "三栏，客户经理2",datex : "2016-04-07 08:14:54",value:[[4,8],[12],[1,11]]}
+    ],
+    components : [{
+      id: 'comp_active',
+      type:'d_active'
+    }],
+    compConfigs : [{type: 'title', name : '标题'}, {type: 'url', name : 'URL'}],
+    bodyList : [[
+      ['comp_1','comp_4'],  // gridBody[0][0][0]
+      ['comp_3'],          // gridBody[0][0][1]
+      ['comp_6','comp_7'],  // gridBody[0][1][0]
+      [],                   // gridBody[0][2][0]
+      ['comp_8']            // gridBody[0][2][1]
+    ]],
+    gridBody : [    // 默认对应各频道中的排列情况
+      [
+        // [4,8],
+        // [12],
+        // [6,6]
+      ]
+    ]
+  };
+  </script>
+</head>
+<body>
+  <aside id="leftside">
+    <div id="logo"></div>
+    <div id="menu">
+      <a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+    </div>
+    <div id="subMenu">
+    <!-- <div id="compList">
+      <div class="subComp" title="基础组件" data-type="d_default">
+        <i class="glyphicon glyphicon-list-alt"></i>
+      </div>
+      <div class="subComp" title="签页组件" data-type="d_tabs">
+        <i class="glyphicon glyphicon-tags"></i>
+      </div>
+
+    </div> -->
+  </aside>
+  <div id="main">
+    <div id="conf-playground"></div>
+    <div id="tmpList-block"></div>
+  </div>
+  <aside id="toolbar">
+    <!-- <div class="tb-container">
+      <div class="tb-divider-1"></div>
+      <div class="tb-inputrow">
+        <label for="inputNote">备注 :</label>
+        <input ref="note" type="text" class="tb-input-1" id="inputNote" />
+      </div>
+      <div class="tb-inputrow">
+        <label for="inputNote">备注 :</label>
+        <input ref="note" type="text" class="tb-input-1" id="inputNote" />
+      </div>
+      <div class="tpl-buttonBar">
+        <div class="tpl-save">保存</div>
+        <div class="tpl-close">关闭</div>
+      </div>
+    </div> -->
+  </aside>
+  <div id="move-area">s</div>
+  <div id="mount-point">
+    <div class="subComp" id="void">
+      <i class="glyphicon glyphicon-file"></i>
+    </div>
+  </div>
+  <!-- <div class="compTip">
+    <span class="tip-title">基础组件</span>
+    <span class="tip-line">标题</span>
+    <span class="tip-line">最大/最小化</span>
+  </div> -->
+<script src="js/less.min.js"></script>
+<script src="js/store.js"></script>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="/js/bootstrap.min.3.6.js"></script>
+<script src="js/work_conf_u.js"></script>
+<script type="text/babel"  src="jsx/work_conf.js"></script>
+<!-- <script src="js/workspace.u.js"></script>
+<script type="text/babel"  src="jsx/workspace.js"></script> -->
+</body>
+</html>

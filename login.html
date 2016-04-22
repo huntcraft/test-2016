@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>用户登录</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="build/es5-shim.min.js"></script>
+  <script src="build/es5-sham.min.js"></script>
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <!-- <script src="build/babel-core.js"></script> -->
+  <style>
+    body,input,button,select,textarea{
+      font-family: "Lucida Grande","Helvetica Neue",Helvetica,Arial,"Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+    }
+    #login-form{
+      width: 200px;
+      margin: 0 auto;
+      overflow: auto;
+    }
+    .login-info{
+      padding-top: 160px;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+    .animated {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    @keyframes fadeOutUp {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+      }
+    }
+
+    .fadeOutUp {
+      -webkit-animation-name: fadeOutUp;
+      animation-name: fadeOutUp;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-info">
+    <h1>用户登录</h1>
+  </div>
+  <div id="loginApp">
+    <div id="login-form"></div>
+    <div id="device">
+
+    </div>
+  </div>
+  <script>
+    var device = (function(){
+      var device
+
+      function update (){
+        var info = window.navigator.userAgent.toLowerCase()
+        device = 'desktop'
+        if (~info.indexOf('ipad')) {
+          device = 'tablet'
+        } else if (~info.indexOf('iphone') || ~info.indexOf('android') && ~info.indexOf('mobile')) {
+          device = 'mobile'
+        }
+      }
+
+      function get (){
+        update()
+        return device
+      }
+
+      return { get : get }
+    })()
+  </script>
+  <!-- <script src="jsx/login.js" type="text/babel"></script> -->
+  <script src="js/login.js"></script>
+</body>
+</html>

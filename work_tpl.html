@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>template - workspace</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <script src="build/babel-core.js"></script>
+  <script src="js/ievent.js"></script>
+  <link rel="stylesheet/less" href="css/workspace.less">
+  <script>
+  var server_data = [[6,6],[12]]
+  var store = {
+    id : 0,
+    note : 'asdfsfdf',
+    action : 'edit',
+    tpl : [[6,6],[5,7],[1,11]],
+    selR : 99,
+    selN : 99,
+    tplList : [
+      {id:23423,note : "三栏，客户经理",datex : "2016-04-07 08:12:54"},
+      {id:23453,note : "三栏，客户经理2",datex : "2016-04-07 08:14:54"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <aside id="leftside">
+    <div id="logo"></div>
+    <div id="menu">
+      <a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+    </div>
+    <div id="subMenu">
+      <!-- <div class="tpl-act">
+        <i class="glyphicon glyphicon-th-list"></i>
+        <span>列表</span>
+      </div>
+      <div class="tpl-act active">
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>增加</span>
+      </div> -->
+      </div>
+  </aside>
+  <div id="main">
+    <!-- <div id="tpl-list">
+      <div class="tplList-1">
+        <span class="tplList-id">1</span>
+        <span class="tplList-name">三栏，客户经理</span>
+        <span class="tplList-date">2016-04-07 08:12:54</span>
+        <a href="" class="tplList-ac">修改</a>
+        <span class="tplList-ac">删除</span>
+      </div>
+      <div class="tplList-1">
+        <span class="tplList-id">2</span>
+        <span class="tplList-name">三栏，大客户经理</span>
+        <span class="tplList-date">2016-04-03 13:09:22</span>
+        <a href="" class="tplList-ac">修改</a>
+        <span class="tplList-ac">删除</span>
+      </div>
+    </div> -->
+
+
+    <!-- <div id="tpl-playground">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tpl-def-block"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="tpl-def-block active">
+              <div class="tpl-def-content">
+                <span class="tpl-divide">
+                  <i class="glyphicon glyphicon-resize-horizontal"></i>
+                </span>
+              </div>
+              <div class="ki"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tpl-def-block">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-1">
+            <div class="tpl-def-block">
+              <span class="tpl-divide">
+                <i class="glyphicon glyphicon-resize-horizontal"></i>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-11">
+            <div class="tpl-def-block"></div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+  <aside id="toolbar">
+    <!-- <div id="tb-add">
+      <div id="action-add">
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>增加栏</span>
+      </div>
+      <div class="tpl-ac-row">
+        <span class="tpl-ac-row-id">1</span>
+        <span class="tpl-row-del"><i class="glyphicon glyphicon-remove"></i></span>
+      </div>
+      <div class="tpl-ac-row">
+        <span class="tpl-ac-row-id">2</span>
+        <span class="tpl-row-del"><i class="glyphicon glyphicon-remove"></i></span>
+      </div>
+      <div class="tpl-ac-row">
+        <span class="tpl-ac-row-id">3</span>
+        <span class="tpl-row-del"><i class="glyphicon glyphicon-remove"></i></span>
+      </div>
+      <div class="tb-inputrow">
+        <label for="inputNote">备注 :</label>
+        <input ref="note" type="text" class="tb-input-1" id="inputNote" />
+      </div>
+      <div class="tpl-buttonBar">
+        <div class="tpl-save">保存</div>
+        <div class="tpl-cancel">取消</div>
+      </div>
+    </div> -->
+  </aside>
+  <div id="mount-hidden">
+
+  </div>
+  <script src="js/less.min.js"></script>
+  <script src="js/jquery-2.2.0.min.js"></script>
+  <script type="text/babel"  src="jsx/work_tpl.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>个人收藏</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.3.6.css">
+  <script src="js/js.cookie.js"></script>
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <script src="build/babel-core.js"></script>
+  <style>
+    #star i{
+      font-size: 40px;
+    }
+    #star span{
+      display: block;
+    }
+    #star{
+      padding: 10px;
+      box-sizing: border-box;
+      vertical-align: top;
+      text-align: center;
+      width: 80px;
+      height: 85px;
+      color: #c0392b;
+      cursor: pointer;
+    }
+    #star a:hover{
+      text-decoration: none;
+      color: #7f8c8d;
+    }
+    .cmp{
+      display: inline-block;
+      vertical-align: top;
+      padding: 10px;
+      text-align: center;
+      width: 80px;
+      height: 85px;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+    .cmp:hover{
+      background: #ecf0f1;
+    }
+    #comps > .cmp {
+      color: #2980b9;
+    }
+    .cmp > i{
+      font-size: 40px;
+      margin-bottom: 5px;
+    }
+    .cmp > span{
+      display: block;
+    }
+    .def{
+      padding: 20px 0;
+      color: #bdc3c7;
+      display: none;
+    }
+    .def.active{
+      display: inline-block;
+    }
+    .hiddenx{
+      display: none;
+    }
+    .show-inline-block{
+      display: inline-block;
+    }
+    .show-block{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo">
+
+  </div>
+  <!--
+    <div id="star">
+      <i class="glyphicon glyphicon-star"></i>
+      <span>收藏</span>
+    </div>
+    <div id="comps">
+      <div class="cmp">
+        <i class="glyphicon glyphicon-cloud"></i>
+        <span>个人云</span>
+      </div>
+      <div class="cmp def">
+        <i class="glyphicon glyphicon-plus"></i>
+      </div>
+      <div class="cmp def">
+        <i class="glyphicon glyphicon-minus"></i>
+      </div>
+    </div>
+  <div id="box">
+
+  </div>
+  <div id="sdf"></div>-->
+  <script type="text/babel" src="jsx/collect.js"></script>
+</body>
+</html>

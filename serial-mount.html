@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="build/react.js"></script>
+  <script src="build/react-dom.js"></script>
+  <script src="build/babel-core.js"></script>
+</head>
+<body>
+  <div id="a1"></div>
+  <script type="text/babel">
+  var Diva = React.createClass({
+    getInitialState: function() {
+      return {fr:[{id:'b1'},{id:'b2'}]}
+    },
+    hclick : function () {
+      var tmp = this.state.fr[0]
+      this.state.fr[0] = this.state.fr[1]
+      this.state.fr[1] = tmp
+
+      this.setState(this.state)
+
+      console.log(this.props.children)
+    },
+    render : function () {
+      function createItem(item) {
+        return <div key={item.id} id={item.id} ref={item.id}>serial block A</div>
+      }
+
+      return (
+        <div onClick={this.hclick}>
+          {this.state.fr.map(createItem)}
+        </div>
+      )
+    }
+  })
+
+  var Divb = React.createClass({
+      render : function () {
+        return (
+          <div ref={this.props.rs}>serial block B {this.props.rs}</div>
+        )
+      }
+    })
+
+  ReactDOM.render(
+    <Diva />,
+    document.getElementById('a1')
+  )
+  ReactDOM.render(
+    <Divb rs="aaaa"/>,
+    document.getElementById('b1')
+  )
+  ReactDOM.render(
+    <Divb rs="dddd"/>,
+    document.getElementById('b2')
+  )
+  </script>
+</body>
+</html>
